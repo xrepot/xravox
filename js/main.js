@@ -153,3 +153,17 @@ themeButton.addEventListener("click", () => {
 });
 
 // Aos JS
+
+
+// Animation 
+
+// let home = document.querySelector(".about")
+// let skilsss = document.querySelector(".skills")
+
+// window.onscroll = function () {
+//   home.classList.add("dis")
+// }
+
+// window.onscroll = function () {
+//   skilsss.classList.add("dis2")
+// }

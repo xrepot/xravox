@@ -15,11 +15,16 @@
       content="  xravox , Graphic Designer , Ravox , Video Editor ,   UX &amp; UI Designer  ,   Front End Developer , JS Developer ,     "
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Aos JS Library -->
     <!-- CSS File -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- Sniper CSS -->
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <!-- ِAos CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <!-- Font Awesome Library -->
     <link
       rel="stylesheet"
@@ -91,7 +96,7 @@
     <!-- End Header -->
     <!-- Start Home -->
     <main class="main">
-      <section class="home section" id="home">
+      <section class="home section" data-aos="fade-down" data-aos-duration="500" data-aos-easing="linear" id="home">
         <div class="home-container container grid">
           <div class="home-content grid">
             <div class="home-social">
@@ -178,7 +183,8 @@
 
       <!-- End Home -->
       <!-- Start About -->
-      <section class="about section before-s" id="about">
+      <section
+        class="about section before-s" id="about" data-aos="fade-down" data-aos-easing="linear">
         <h2 class="section-title m-st">About Me</h2>
         <span class="section-subtitle">My Introduction</span>
         <div class="about-container container grid">
@@ -240,7 +246,7 @@
       </section>
       <!-- End About -->
       <!-- Start Skills -->
-      <section class="skills section" id="skills">
+      <section class="skills section" data-aos="fade-down" data-aos-duration="500" data-aos-easing="linear" id="skills">
         <h2 class="section-title m-st">My Skills</h2>
         <span class="section-subtitle">My Technical Level</span>
         <div class="skills-container container grid">
@@ -386,7 +392,7 @@
       </section>
       <!-- End Skills -->
       <!-- Start Services -->
-      <section class="services section" id="services">
+      <section class="services section" data-aos="fade-down" data-aos-duration="500" data-aos-easing="linear" id="services">
         <h2 class="section-title m-st">Services</h2>
         <span class="section-subtitle">What I Offer</span>
         <div class="services-container container grid">
@@ -529,7 +535,7 @@
       </section>
       <!-- End Services -->
       <!-- Start Portfolio -->
-      <section class="protfolio section" id="portfolio">
+      <section class="protfolio section" data-aos="fade-down" data-aos-duration="500" data-aos-easing="linear" id="portfolio">
         <h2 class="section-title m-st">Portfolio</h2>
         <span class="section-subtitle">Most Recent Work</span>
         <div class="protfolio-container container swiper-container">
@@ -602,7 +608,7 @@
       </section>
       <!-- End Portfolio -->
       <!-- Start Project In Mind -->
-      <section class="project section">
+      <section class="project section" data-aos="fade-down" data-aos-duration="500" data-aos-easing="linear">
         <div class="project-bg">
           <div class="project-container container grid">
             <div class="project-data">
@@ -626,7 +632,7 @@
     </setion> -->
       <!-- End Testimonal -->
       <!-- Start Contact Me -->
-      <section class="contact section" id="contact">
+      <section class="contact section" data-aos="fade-down" data-aos-duration="500" data-aos-easing="linear" id="contact">
         <h2 class="section-title m-st">Contact</h2>
         <span class="section-subtitle">Get In Touch</span>
         <div class="contact-container container grid">
@@ -755,8 +761,13 @@
     <a href="#" class="scrollup" id="scroll-up">
       <i class="uil uil-arrow-up scrollup-icon"></i>
     </a>
+    <!-- ِAos JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Swiper JS -->
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

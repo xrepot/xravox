@@ -461,6 +461,12 @@ img {
   justify-content: center;
 }
 /* Start Skills */
+/* .skills.dis2 {
+  display: block;
+}
+.skills {
+  display: none;
+} */
 .skills-container {
   row-gap: 0;
 }
