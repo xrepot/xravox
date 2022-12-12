@@ -29,6 +29,9 @@ navlink.forEach((n) => n.addEventListener("click", linkAction));
 
 let skillsContent = document.getElementsByClassName("skills-content"),
   skillsheader = document.querySelectorAll(".skills-header");
+let mySection = document.querySelector(".skills-content");
+let mySpans = document.querySelectorAll(".skills-precentage");
+
 
 function toggleSkills() {
   let itemClass = this.parentNode.className;
@@ -68,47 +71,11 @@ modalCloses.forEach((modalCloses) => {
   });
 });
 
-// Swiper
-
-let swiper = new Swiper(".protfolio-container", {
-  cssMode: true,
-  loop: true,
-
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
-// Scroll Active Link
-
-// const sections = document.querySelectorAll("section[id]")
-// console.log(sections)
-
-// function scrollActive() {
-//   const scrollGG = window.pageYOffset
-
-//   sections.forEach(current => {
-//     const sectionHeight = current.offsetHeight
-//     const sectionTop = current.offsetTop - 50;
-//     sectionId = current.getAttribute("id")
-//     if (scrollGG > sectionTop && scrollGG <= sectionTop + sectionHeight) {
-//       document.querySelector(".nav-menu a[href*=' + sectionId + ']").classList.add("active-link")
-//     } else {
-//       console.log("good")
-//     }
-//   })
-// }
-// window.addEventListener("scroll", scrollActive)
 
 // Change Header Color
 
+const nav = document.getElementById("head");
 function scrollHeader() {
-  const nav = document.getElementById("head");
   if (this.scrollY >= 80) nav.classList.add("scroll-header");
   else nav.classList.remove("scroll-header");
 }
@@ -123,47 +90,167 @@ function scrollTop() {
 }
 window.addEventListener("scroll", scrollTop);
 
+function scrollTopWhats() {
+  const scrollTop = document.getElementById("whats");
+  if (this.scrollY >= 650) scrollTop.classList.add("show-whats");
+  else scrollTop.classList.remove("show-whats");
+}
+window.addEventListener("scroll", scrollTopWhats);
+
 // Dark & Light Mode
 
 const themeButton = document.getElementById("theme-button");
-const darkTheme = "dark-theme";
-const iconTheme = "uil-sun";
+setInterval(() => {
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("dark", "dark-theme");
+    localStorage.removeItem("light");
+  } else {
+    localStorage.setItem("light", "");
+    localStorage.removeItem("dark")
+  }
+}, 0);
 
-const selectedTheme = localStorage.getItem("selected-theme");
-const selectedIcon = localStorage.getItem("selected-icon");
-
-const getCurrentTheme = () =>
-  document.body.classList.contains("darkTheme") ? "dark" : "light";
-const getCurrentIcon = () =>
-  themeButton.classList.contains("iconTheme") ? "uil-moon" : "uil-sun";
-
-if (selectedTheme) {
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
-    iconTheme
-  );
+if (localStorage.getItem("dark")) {
+  document.body.classList.add("dark-theme");
+  themeButton.classList.add("uil-sun");
+}else  {
+  document.body.classList.remove("dark-theme");
+  themeButton.classList.remove("uil-sun");
 }
-themeButton.addEventListener("click", () => {
-  document.body.classList.toggle(darkTheme);
-  themeButton.classList.toggle(iconTheme);
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
-});
 
+
+themeButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  themeButton.classList.toggle("uil-sun");
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("dark", "dark-theme");
+    localStorage.removeItem("light");
+  } else {
+    localStorage.setItem("light", "");
+    localStorage.removeItem("dark")
+  }
+});
 // Aos JS
 
+// Light On Sections
 
-// Animation 
+let main = document.querySelectorAll("main section");
+let slide = document.querySelector(".point-slide");
+let slideA = document.querySelectorAll(".point-slide a");
 
-// let home = document.querySelector(".about")
-// let skilsss = document.querySelector(".skills")
+function removeActive() {
+  slideA.forEach((ele) => {
+    ele.classList.remove("active-3");
+  });
+}
+function removeActive() {
+  slideA.forEach((ele) => {
+    ele.classList.remove("active-3");
+  });
+}
 
-// window.onscroll = function () {
-//   home.classList.add("dis")
-// }
+window.addEventListener("scroll", () => {
+  if (scrollY >= 0) {
+    removeActive();
+    slideA[0].classList.add("active-3");
+  }
+  if (scrollY >= main[1].offsetTop - 72) {
+    removeActive();
+    slideA[1].classList.add("active-3");
+  }
+  if (scrollY >= main[2].offsetTop - 72) {
+    removeActive();
+    slideA[2].classList.add("active-3");
+  }
+  if (window.scrollY >= main[3].offsetTop - 72) {
+    removeActive();
+    slideA[3].classList.add("active-3");
+  }
+  if (scrollY >= main[4].offsetTop - 72) {
+    removeActive();
+    slideA[4].classList.add("active-3");
+  }
+  if (scrollY >= main[5].offsetTop - 72) {
+    removeActive();
+    slideA[5].classList.add("active-3");
+  }
+});
 
-// window.onscroll = function () {
-//   skilsss.classList.add("dis2")
-// }
+// Animation Whats
+
+let whats = document.querySelector(".whats");
+
+setInterval(() => {
+  whats.classList.toggle("wobble");
+}, 1500);
+
+// Tabs System
+let tabs = document.querySelectorAll(".li-work");
+let works = document.querySelectorAll(".bottom-work .work-one")
+let shape = document.querySelectorAll(".allShape")
+
+tabs.forEach((ele) => {
+  ele.addEventListener("click", (e) => {
+    tabs.forEach((ele) => {
+      ele.classList.remove("active-4");
+    });
+    e.currentTarget.classList.add("active-4");
+    works.forEach((ele) => {
+      ele.style.display = "none"
+    })
+    document.querySelectorAll(`${e.currentTarget.dataset.work} .work-one`).forEach((ele) => {
+      ele.style.display = "flex"
+    })
+  });
+});
+
+document.querySelector(`[data-work=".web-work"]`).addEventListener("click", () => {
+  shape.forEach((ele) => {
+    ele.style.display = "none"
+  })
+})
+
+document.querySelector(`[data-work=".all"]`).addEventListener("click", () => {
+  shape.forEach((ele) => {
+    ele.style.display = "block"
+  })
+})
+
+document.querySelector(`[data-work=".design-work"]`).addEventListener("click", () => {
+  document.querySelectorAll(".shape-work")[1].style.display = "none"
+})
+// Change Width Skills
+let bars = document.querySelectorAll(".skills-precentage")
+
+window.addEventListener("scroll", () => {
+  bars.forEach((bar) => {
+  if (scrollY >= main[2].offsetTop - 500) {
+      bar.style.width = bar.dataset.width 
+    } else {
+      bar.style.width = 0
+    }
+  })
+})
+
+// 
+let btnOpenImg = document.querySelectorAll(".eye-work")
+let btnCloseImg = document.querySelector(".close-img")
+let img = document.querySelector(".clicked-img")
+let boxImg = document.querySelector(".click-img")
+let workImg = document.querySelectorAll(".work-img")
+let footer = document.querySelector(".footer")
+
+btnOpenImg.forEach((ele) => {
+  ele.addEventListener("click", () => {
+    img.src = ele.parentElement.children[2].lastElementChild.src
+    boxImg.classList.add("active-6")
+    document.querySelector("main").classList.add("fb-15")
+    nav.classList.add("fb-15")
+  })
+})
+
+btnCloseImg.addEventListener("click", () => {
+  btnCloseImg.parentElement.classList.remove("active-6")
+  document.querySelector("main").classList.remove("fb-15")
+  nav.classList.remove("fb-15")
+})
