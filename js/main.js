@@ -32,7 +32,6 @@ let skillsContent = document.getElementsByClassName("skills-content"),
 let mySection = document.querySelector(".skills-content");
 let mySpans = document.querySelectorAll(".skills-precentage");
 
-
 function toggleSkills() {
   let itemClass = this.parentNode.className;
   for (let i = 0; i < skillsContent.length; i++) {
@@ -71,7 +70,6 @@ modalCloses.forEach((modalCloses) => {
   });
 });
 
-
 // Change Header Color
 
 const nav = document.getElementById("head");
@@ -97,6 +95,14 @@ function scrollTopWhats() {
 }
 window.addEventListener("scroll", scrollTopWhats);
 
+// Animation Whats
+
+let whats = document.querySelector(".whats");
+
+setInterval(() => {
+  whats.classList.toggle("wobble");
+}, 1500);
+
 // Dark & Light Mode
 
 const themeButton = document.getElementById("theme-button");
@@ -106,18 +112,17 @@ setInterval(() => {
     localStorage.removeItem("light");
   } else {
     localStorage.setItem("light", "");
-    localStorage.removeItem("dark")
+    localStorage.removeItem("dark");
   }
 }, 0);
 
 if (localStorage.getItem("dark")) {
   document.body.classList.add("dark-theme");
   themeButton.classList.add("uil-sun");
-}else  {
+} else {
   document.body.classList.remove("dark-theme");
   themeButton.classList.remove("uil-sun");
 }
-
 
 themeButton.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
@@ -127,10 +132,9 @@ themeButton.addEventListener("click", () => {
     localStorage.removeItem("light");
   } else {
     localStorage.setItem("light", "");
-    localStorage.removeItem("dark")
+    localStorage.removeItem("dark");
   }
 });
-// Aos JS
 
 // Light On Sections
 
@@ -176,81 +180,94 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Animation Whats
-
-let whats = document.querySelector(".whats");
-
-setInterval(() => {
-  whats.classList.toggle("wobble");
-}, 1500);
-
 // Tabs System
-let tabs = document.querySelectorAll(".li-work");
-let works = document.querySelectorAll(".bottom-work .work-one")
-let shape = document.querySelectorAll(".allShape")
 
-tabs.forEach((ele) => {
-  ele.addEventListener("click", (e) => {
-    tabs.forEach((ele) => {
-      ele.classList.remove("active-4");
-    });
-    e.currentTarget.classList.add("active-4");
-    works.forEach((ele) => {
-      ele.style.display = "none"
-    })
-    document.querySelectorAll(`${e.currentTarget.dataset.work} .work-one`).forEach((ele) => {
-      ele.style.display = "flex"
-    })
-  });
-});
+// let tabs = document.querySelectorAll(".li-work");
+// let works = document.querySelectorAll(".bottom-work .work-one")
+// let shape = document.querySelectorAll(".allShape")
 
-document.querySelector(`[data-work=".web-work"]`).addEventListener("click", () => {
-  shape.forEach((ele) => {
-    ele.style.display = "none"
-  })
-})
+// tabs.forEach((ele) => {
+//   ele.addEventListener("click", (e) => {
+//     tabs.forEach((ele) => {
+//       ele.classList.remove("active-4");
+//     });
+//     e.currentTarget.classList.add("active-4");
+//     works.forEach((ele) => {
+//       ele.style.display = "none"
+//     })
+//     document.querySelectorAll(`${e.currentTarget.dataset.work} .work-one`).forEach((ele) => {
+//       ele.style.display = "flex"
+//     })
+//   });
+// });
 
-document.querySelector(`[data-work=".all"]`).addEventListener("click", () => {
-  shape.forEach((ele) => {
-    ele.style.display = "block"
-  })
-})
+// document.querySelector(`[data-work=".web-work"]`).addEventListener("click", () => {
+//   shape.forEach((ele) => {
+//     ele.style.display = "none"
+//   })
+// })
 
-document.querySelector(`[data-work=".design-work"]`).addEventListener("click", () => {
-  document.querySelectorAll(".shape-work")[1].style.display = "none"
-})
+// document.querySelector(`[data-work=".all"]`).addEventListener("click", () => {
+//   shape.forEach((ele) => {
+//     ele.style.display = "block"
+//   })
+// })
+
+// document.querySelector(`[data-work=".design-work"]`).addEventListener("click", () => {
+//   document.querySelectorAll(".shape-work")[1].style.display = "none"
+// })
+
 // Change Width Skills
-let bars = document.querySelectorAll(".skills-precentage")
+let bars = document.querySelectorAll(".skills-precentage");
 
 window.addEventListener("scroll", () => {
   bars.forEach((bar) => {
-  if (scrollY >= main[2].offsetTop - 500) {
-      bar.style.width = bar.dataset.width 
+    if (scrollY >= main[2].offsetTop - 500) {
+      bar.style.width = bar.dataset.width;
     } else {
-      bar.style.width = 0
+      bar.style.width = 0;
     }
-  })
-})
+  });
+});
 
-// 
-let btnOpenImg = document.querySelectorAll(".eye-work")
-let btnCloseImg = document.querySelector(".close-img")
-let img = document.querySelector(".clicked-img")
-let boxImg = document.querySelector(".click-img")
-let workImg = document.querySelectorAll(".work-img")
-let footer = document.querySelector(".footer")
+// Show Work
+
+let btnOpenImg = document.querySelectorAll(".eye-work");
+let btnCloseImg = document.querySelector(".close-img");
+let img = document.querySelector(".clicked-img");
+let boxImg = document.querySelector(".click-img");
+let workImg = document.querySelectorAll(".work-img");
+let footer = document.querySelector(".footer");
 
 btnOpenImg.forEach((ele) => {
   ele.addEventListener("click", () => {
-    img.src = ele.parentElement.children[2].lastElementChild.src
-    boxImg.classList.add("active-6")
-    document.querySelector("main").classList.add("fb-15")
-    nav.classList.add("fb-15")
-  })
-})
+    img.src = ele.parentElement.children[2].lastElementChild.src;
+    boxImg.classList.add("active-6");
+    document.querySelector("main").classList.add("fb-15");
+    nav.classList.add("fb-15");
+  });
+});
 
 btnCloseImg.addEventListener("click", () => {
-  btnCloseImg.parentElement.classList.remove("active-6")
-  document.querySelector("main").classList.remove("fb-15")
-  nav.classList.remove("fb-15")
-})
+  btnCloseImg.parentElement.classList.remove("active-6");
+  document.querySelector("main").classList.remove("fb-15");
+  nav.classList.remove("fb-15");
+});
+
+let tst = ["Ahmed", 10, "LOL"];
+console.log(tst[0]);
+
+// Send Email
+
+function SendMail() {
+  var params = {
+    from_name: document.getElementById("fullName").value,
+    email_id: document.getElementById("email_id").value,
+    message: document.getElementById("message").value,
+  };
+  emailjs
+    .send("service_7f3dtwp", "template_1rqe1tc", params)
+    .then(function (res) {
+      alert("Your Message Has Been Sent!" + res.status);
+    });
+}

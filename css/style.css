@@ -98,7 +98,7 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: white;
+  background-color: var(--body-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -112,6 +112,7 @@ img {
 
 .section-title {
   font-size: var(--h1-font-size);
+  text-align: center;
 }
 
 .section-subtitle {
@@ -925,8 +926,7 @@ body {
 }
 .p-serv {
   font-size: 15px;
-  font-weight: 500;
-  color: white;
+  color: lightgray;
   padding: 5px;
 }
 @media (max-width: 1000px) {
@@ -975,7 +975,7 @@ body {
   position: relative;
   border-radius: 6px;
   background-color: #170b39;
-  box-shadow: 0px 0px 17px 1px #6131df;
+  /* box-shadow: 0px 0px 17px 1px #6131df; */
 }
 .work-two::after {
   content: "";
@@ -1055,8 +1055,15 @@ body {
   gap: 20px;
   flex-wrap: wrap; */
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 1100px) {
+  .bottom-work {
+    display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  }
 }
 .image-work {
   display: flex;
@@ -1074,7 +1081,7 @@ body {
   position: relative;
   border-radius: 6px;
   background-color: #170b39;
-  box-shadow: 0px 0px 17px 1px #6131df;
+  /* box-shadow: 0px 0px 17px 1px #6131df; */
 }
 .work-one::after {
   content: "";
@@ -1097,7 +1104,7 @@ body {
   cursor: pointer;
   transition: 1.5s;
   border-radius: 4px;
-  border: 6px solid var(--body-color);
+  /* border: 6px solid var(--body-color); */
 }
 .image-work::before {
   content: "";
@@ -1116,7 +1123,7 @@ body {
   opacity: 1;
 }
 .image-work:hover .work-img {
-  transform: rotate(-5deg) scale(1.1);
+  transform: translateY(-20px);
 }
 @media (max-width: 900px) {
   .top-work {
@@ -1224,6 +1231,12 @@ body {
   .clicked-img {
     width: 35% !important;
   }
+}
+.twol {
+  transition: 0.3s !important;
+}
+.twol:hover .work-img {
+  transform: translateY(-20px);
 }
 /* End Portfolio */
 /* Start Project In Mind */
@@ -1389,7 +1402,7 @@ body.dark-theme {
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
-  --body-color: #0d0523;
+  --body-color: hsl(242.61deg 40.35% 11.18%);
   --container-color: hsl(var(--hue-color), 29%, 16%);
 }
 
