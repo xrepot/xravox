@@ -1398,7 +1398,7 @@ body {
 /* Dark & Light Mode */
 body.dark-theme {
   /* --first-color: #4f00e4; */
-  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --first-color-second: #1d1933;
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);

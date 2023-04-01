@@ -265,9 +265,13 @@ function SendMail() {
     email_id: document.getElementById("email_id").value,
     message: document.getElementById("message").value,
   };
-  emailjs
-    .send("service_7f3dtwp", "template_1rqe1tc", params)
-    .then(function (res) {
-      alert("Your Message Has Been Sent!" + res.status);
-    });
+  if (params.from_name && params.email_id && params.message) {
+    emailjs
+      .send("service_7f3dtwp", "template_1rqe1tc", params)
+      .then(function (res) {
+        alert("Your Message Has Been Sent! " + res.status);
+      });
+  } else {
+    alert("اح")
+  }
 }
